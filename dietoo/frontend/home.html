@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <!-- Viewport meta is crucial for responsive design -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fitness Meal Dashboard</title>
+  <link rel="stylesheet" href="homestyles.css" />
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body>
+  <div class="app">
+    <!-- TUBELIGHT NAV (Replaces old top-nav) -->
+    <nav class="tubelight-nav">
+      <div class="nav-container">
+        <!-- Active Lamp Highlighter (Slides across) -->
+        <div id="lamp-highlighter" class="lamp">
+          <div class="lamp-beam"></div>
+          <div class="lamp-glow-1"></div>
+          <div class="lamp-glow-2"></div>
+        </div>
+
+        <!-- Items -->
+        <a href="#" class="nav-item active" onclick="setActive(this, 'dashboard')">
+          <span class="nav-text">Dashboard</span>
+          <i data-lucide="home" class="nav-icon"></i>
+        </a>
+        <a href="#" class="nav-item" onclick="setActive(this, 'plans')">
+          <span class="nav-text">Plans</span>
+          <i data-lucide="clipboard-list" class="nav-icon"></i>
+        </a>
+        <a href="#" class="nav-item" onclick="setActive(this, 'chatbot')">
+          <span class="nav-text">AI Chat</span>
+          <i data-lucide="bot" class="nav-icon"></i>
+        </a>
+        <a href="#" class="nav-item" onclick="setActive(this, 'progress')">
+          <span class="nav-text">Progress</span>
+          <i data-lucide="bar-chart-2" class="nav-icon"></i>
+        </a>
+        <a href="#" class="nav-item" onclick="setActive(this, 'profile')">
+          <span class="nav-text">Profile</span>
+          <i data-lucide="user" class="nav-icon"></i>
+        </a>
+      </div>
+    </nav>
+
+    <!-- CONTENT CONTAINER -->
+    <div class="app-container">
+
+      <!-- MAIN DASHBOARD CONTENT -->
+      <div id="dashboard-view">
+
+        <!-- STATS ROW -->
+        <div class="stats-row">
+          <div class="card stat-card">
+            <div class="icon-box fire">🔥</div>
+            <div class="content">
+              <p class="label">Daily Calories</p>
+              <h3 class="value">2200 kcal</h3>
+            </div>
+          </div>
+          <div class="card stat-card">
+            <div class="icon-box muscle">💪</div>
+            <div class="content">
+              <p class="label">Protein Target</p>
+              <h3 class="value">120g</h3>
+            </div>
+          </div>
+          <div class="card stat-card">
+            <div class="icon-box weight">⚖️</div>
+            <div class="content">
+              <p class="label">Current Weight</p>
+              <h3 class="value">70 kg</h3>
+            </div>
+          </div>
+          <div class="card stat-card">
+            <div class="icon-box goal">🎯</div>
+            <div class="content">
+              <p class="label">Goal: Weight Loss</p>
+              <h3 class="value sub">Target: 65 kg</h3>
+            </div>
+          </div>
+        </div>
+
+        <div class="main-grid">
+          <!-- LEFT COLUMN: MEALS -->
+          <div class="left-col">
+            <h2 class="section-title">Today’s Meal Plan</h2>
+
+            <div class="meals-grid">
+              <!-- Breakfast -->
+              <div class="card meal-card">
+                <div class="meal-header">
+                  <span class="meal-icon">🍳</span> Breakfast
+                </div>
+                <div class="meal-body">
+                  <img src="oats.jpg"
+                    alt="Oats" class="meal-img" />
+                  <div class="meal-text">
+                    <h4>Oats & Eggs</h4>
+                    <p>450 kcal | 25g Protein</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Lunch -->
+              <div class="card meal-card">
+                <div class="meal-header">
+                  <span class="meal-icon">🥗</span> Lunch
+                </div>
+                <div class="meal-body">
+                  <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=100&h=100&fit=crop" alt="Salad"
+                    class="meal-img" />
+                  <div class="meal-text">
+                    <h4>Grilled Chicken</h4>
+                    <p>600 kcal | 40g Protein</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Dinner -->
+              <div class="card meal-card">
+                <div class="meal-header">
+                  <span class="meal-icon">🥑</span> Dinner
+                </div>
+                <div class="meal-body">
+                  <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=100&h=100&fit=crop"
+                    alt="Bowl" class="meal-img" />
+                  <div class="meal-text">
+                    <h4>Quinoa & Paneer</h4>
+                    <p>550 kcal | 30g Protein</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Snack -->
+              <div class="card meal-card">
+                <div class="meal-header">
+                  <span class="meal-icon">🥜</span> Snack
+                </div>
+                <div class="meal-body">
+                  <img src="nuts.jpeg"
+                    alt="Nuts" class="meal-img" />
+                  <div class="meal-text">
+                    <h4>Fruit & Nuts</h4>
+                    <p>200 kcal | 10g Protein</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="info-text">
+              <i data-lucide="info" style="width:16px;"></i> Meals will be delivered daily at 8:00 AM
+            </div>
+
+            <!-- Bottom Row: Suggestions & Sub (Merged into Left Col layout for flow) -->
+            <div class="bottom-grid">
+              <div class="card suggestion-card">
+                <div class="card-header">💡 Suggestions</div>
+                <ul class="suggestion-list">
+                  <li><i data-lucide="droplet" style="width:16px;"></i> Drink more water!</li>
+                  <li><i data-lucide="glass-water" style="width:16px;"></i> Add a protein shake today</li>
+                </ul>
+              </div>
+
+              <div class="card subscription-card">
+                <div class="card-header">📅 Your Subscription</div>
+                <div class="sub-box">
+                  <h4>3 Month Plan</h4>
+                  <p>Meals Delivered Daily</p>
+                  <small>Renewal: July 25, 2024</small>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- RIGHT COLUMN: STATUS & PROGRESS -->
+          <div class="right-col">
+
+            <!-- Delivery Status -->
+            <div class="card status-card">
+              <h3>Delivery Status</h3>
+              <div class="status-row"><span>Plan:</span> <b>3 Months</b></div>
+              <div class="status-row"><span>Next Delivery:</span> <b>Tomorrow</b></div>
+              <div class="status-row"><span>Status:</span> <b class="green"><i data-lucide="check-circle-2"
+                    style="width:16px;"></i> Scheduled</b></div>
+            </div>
+
+            <!-- Progress Chart -->
+            <div class="card progress-card">
+              <h3>Progress</h3>
+              <canvas id="weightChart"></canvas>
+              <p class="chart-caption">You’re on track! 🎉</p>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+      <!-- CHATBOT VIEW (Hidden by default) -->
+      <div id="chatbot-view" class="hidden">
+        <div class="chat-interface">
+          <div class="chat-header">
+            <h3>AI Assistant</h3>
+            <p>Ask me anything about your diet!</p>
+          </div>
+          <div class="chat-history" id="chat-history">
+            <!-- Messages go here -->
+            <div class="message-row bot">
+              <div class="avatar">🤖</div>
+              <div class="bubble bot">Hello! I'm your diet assistant. How can I help you today?</div>
+            </div>
+          </div>
+          <div class="chat-input-area">
+            <input type="text" id="chat-input" placeholder="Type a message..." />
+            <button id="send-btn" onclick="sendMessage()">➤</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- PLANS VIEW (Hidden by default) -->
+      <div id="plans-view" class="hidden">
+        <div class="plans-container">
+          <div class="plans-header">
+            <h2>Choose Your Plan</h2>
+            <p>Select the best plan for your fitness journey.</p>
+          </div>
+
+          <div class="plans-grid">
+
+            <!-- BASIC PLAN -->
+            <div class="plan-card">
+              <div class="plan-icon">🌱</div>
+              <h3>Basic Plan</h3>
+              <ul class="plan-features">
+                <li>Daily calorie tracking</li>
+                <li>Simple meal plan</li>
+              </ul>
+              <div class="plan-price">999</div>
+              <button class="plan-btn" onclick="selectPlan('Basic Plan')">Select Plan</button>
+            </div>
+
+            <!-- STANDARD PLAN -->
+            <div class="plan-card popular">
+              <div class="plan-badge">Most Popular</div>
+              <div class="plan-icon">🔥</div>
+              <h3>Standard Plan</h3>
+              <ul class="plan-features">
+                <li>Weekly meal plans</li>
+                <li>Progress tracking</li>
+              </ul>
+              <div class="plan-price">₹1999 / month</div>
+              <button class="plan-btn" onclick="selectPlan('Standard Plan')">Select Plan</button>
+            </div>
+
+            <!-- PREMIUM PLAN -->
+            <div class="plan-card">
+              <div class="plan-icon"></div>
+              <h3>Premium Plan</h3>
+              <ul class="plan-features">
+                <li>Personalized plans</li>
+                <li>Advanced insights</li>
+              </ul>
+              <div class="plan-price">₹4999 / month</div>
+              <button class="plan-btn" onclick="selectPlan('Premium Plan')">Select Plan</button>
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+
+      <!-- PROGRESS VIEW (Hidden by default) -->
+      <div id="progress-view" class="hidden">
+        <div class="progress-wrapper">
+          <div class="progress-header">
+            <h2>Your Progress</h2>
+            <p>Track your stats and stay motivated!</p>
+          </div>
+
+          <div class="progress-grid">
+            <!-- WEIGHT CHART CARD -->
+            <div class="card wide-card">
+              <h3>Weight History</h3>
+              <div class="chart-container">
+                <!-- We reuse the chart logic but maybe bigger canvas here or different one -->
+                <!-- For now, let's use a new canvas ID -->
+                <canvas id="progressChart"></canvas>
+              </div>
+            </div>
+
+            <!-- WEEKLY SUMMARY -->
+            <div class="card summary-card">
+              <h3>Weekly Summary</h3>
+              <div class="stat-item">
+                <span>Avg Calories</span>
+                <strong>2,100 kcal</strong>
+              </div>
+              <div class="stat-item">
+                <span>Workouts</span>
+                <strong>4 Sessions</strong>
+              </div>
+              <div class="stat-item">
+                <span>Water Intake</span>
+                <strong>2.5L / Day</strong>
+              </div>
+              <div class="stat-item">
+                <span>Steps</span>
+                <strong>8,500 / Day</strong>
+              </div>
+            </div>
+
+            <!-- WATER TRACKER -->
+            <div class="card water-card">
+              <h3>Water Tracker</h3>
+              <div class="water-controls">
+                <button class="water-btn" onclick="updateWater(-1)">-</button>
+                <div class="glass-icon">💧</div>
+                <button class="water-btn" onclick="updateWater(1)">+</button>
+              </div>
+              <p id="water-count">0 / 8 Glasses</p>
+              <div class="water-bar-bg">
+                <div class="water-bar-fill" id="water-fill" style="width: 0%"></div>
+              </div>
+            </div>
+
+            <!-- LOG WEIGHT -->
+            <div class="card log-card">
+              <h3>Log Today's Weight</h3>
+              <div class="log-input-group">
+                <input type="number" id="weight-input" placeholder="kg" />
+                <button class="log-btn" onclick="logWeight()">Log</button>
+              </div>
+              <p class="last-log">Last log: 70.5kg (Yesterday)</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PROFILE VIEW (Hidden by default) -->
+      <div id="profile-view" class="hidden">
+        <div class="profile-container">
+          <div class="profile-header">
+            <h2>Your Profile</h2>
+            <p>Update your details to get personalized diet plans</p>
+          </div>
+
+          <form id="profile-form" onsubmit="event.preventDefault(); saveProfile();">
+            <!-- SECTION 1: Personal -->
+            <h4 class="form-section-title">👤 Personal Details</h4>
+            <div class="form-row">
+              <div class="form-group">
+                <label>Age</label>
+                <input type="number" id="age" placeholder="25" />
+              </div>
+              <div class="form-group">
+                <label>Gender</label>
+                <select id="gender">
+                  <option>Male</option>
+                  <option>Female</option>
+                  <option>Other</option>
+                </select>
+                <!-- SECTION 2: Body Stats -->
+                <h4 class="form-section-title">⚖️ Body Stats</h4>
+                <div class="form-row">
+                  <div class="form-group">
+                    <label>Height (cm)</label>
+                    <input type="number" id="height" placeholder="175" />
+                  </div>
+                  <div class="form-group">
+                    <label>Current Weight (kg)</label>
+                    <input type="number" id="currentWeight" placeholder="70" />
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label>Activity Level</label>
+                  <select id="activity">
+                    <option>Sedentary (no exercise)</option>
+                    <option>Lightly Active</option>
+                    <option>Moderately Active</option>
+                    <option>Very Active</option>
+                  </select>
+                </div>
+
+                <!-- SECTION 3: Goals & Diet -->
+                <h4 class="form-section-title">🎯 Goals & preferences</h4>
+                <div class="form-group">
+                  <label>Main Goal</label>
+                  <select id="goal">
+                    <option>Weight Loss</option>
+                    <option>Weight Gain</option>
+                    <option>Maintain Weight</option>
+                    <option>Muscle Building</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label>Dietary Preference</label>
+                  <div class="radio-group">
+                    <label class="radio-card">
+                      <input type="radio" name="diet" value="veg" />
+                      <span>🥦 Veg</span>
+                    </label>
+                    <label class="radio-card">
+                      <input type="radio" name="diet" value="nonveg" checked />
+                      <span>🍗 Non-Veg</span>
+                    </label>
+                    <label class="radio-card">
+                      <input type="radio" name="diet" value="vegan" />
+                      <span>🌱 Vegan</span>
+                    </label>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label>Allergies (Optional)</label>
+                  <input type="text" id="allergies" placeholder="e.g. Peanuts, Gluten..." />
+                </div>
+
+                <button type="submit" class="save-btn">Save Profile</button>
+
+                <!-- SECTION 4: Subscription Info (Read-Only) -->
+                <h4 class="form-section-title">📅 Subscription Details</h4>
+                <div class="card sub-info-card"
+                  style="background: #fffbeb; border: 1px solid #fcd34d; padding: 20px; border-radius: 12px; margin-top: 10px;height: 200px;">
+                  <div style="display: flex; justify-content: space-between; margin-bottom: 10px; height: 50px;">
+                    <span style="color: #92400e; font-weight: 600;">Current Plan</span>
+                    <span style="color: #b45309; font-weight: 700;">Standard Plan</span>
+                  </div>
+                  <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                    <span style="color: #92400e; font-weight: 600;">Start Date</span>
+                    <span style="color: #b45309;">Jan 01, 2024</span>
+                  </div>
+                  <div style="display: flex; justify-content: space-between;">
+                    <span style="color: #92400e; font-weight: 600;">Renewal Date</span>
+                    <span style="color: #b45309;">Feb 01, 2024</span>
+                  </div>
+                </div>
+
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <script type="module" src="home.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+</html>
